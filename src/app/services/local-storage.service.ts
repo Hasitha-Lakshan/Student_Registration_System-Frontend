@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class LocalStorageService {
 
-  constructor() {}
+  constructor() { }
 
   /**
    * Set local storage item
@@ -24,9 +24,11 @@ export class LocalStorageService {
    */
   getItem(key: string) {
     const value = window.localStorage.getItem(key);
-   if (value) {
-    return JSON.parse(value);
+    if (value && typeof value !== 'string') {
+      return JSON.parse(value);
+    } else if (value) {
+      return value;
+    }
+    return null;
   }
-  return null;
-}
 }

@@ -1,15 +1,16 @@
+/* @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"; */
+
 html,
 body {
-    font-family: 'Muli', 'Roboto', sans-serif;
+  font-family: "Ubuntu", sans-serif !important;
 }
 
 h1 {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 1000px) {
-    h1 {
-        font-size: calc(1rem + 1.5vw);
-    }
+  h1 {
+    font-size: calc(1rem + 1.5vw);
+  }
 }
-

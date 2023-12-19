@@ -5,6 +5,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { StateService } from '../services/state.service';
 
 export const authGuard: CanActivateFn = (): boolean => {
+
   if (inject(StateService).loginStatus$) {
     return true;
   } else {

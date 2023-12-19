@@ -1,8 +1,26 @@
-.navbar {
-    height: 60px;
+.navbar .navbar-brand {
+  color: white;
 }
 
-#login-button{
-    background-color: #565a89;
-    outline: 1px solid transparent;
+.navbar .navbar-brand {
+  font-size: 18px !important;
+}
+.navbar {
+  background-color: #2f0572 !important;
+}
+
+.nav-item .nav-link {
+  color: rgb(168, 168, 168) !important;
+}
+
+.nav-item .nav-link:hover {
+  color: rgb(255, 255, 255) !important;
+}
+
+.nav-item .active {
+  color: rgb(255, 255, 255) !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
 }

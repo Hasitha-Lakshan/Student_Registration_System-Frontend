@@ -1,33 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { StateService } from '../../../services/state.service';
+import { CommonModule } from '@angular/common';
+import { LocalStorageService } from '../../../services/local-storage.service';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  providers: [StateService],
+  providers: [StateService, LocalStorageService],
 })
 export class HeaderComponent implements OnInit {
-  isLogin: boolean = false;
+  @Input() isLogin: boolean = false;
+  @Input() activePathName: string = "";
 
-  constructor(private router: Router, private stateService: StateService) {}
-
-  loginHandler() {
-    if (this.isLogin) {
-      this.stateService.setLoginStatus(false);
-      this.router.navigate(['']);
-      localStorage.clear();
-    } else {
-      this.router.navigate(['/login']);
-    }
-  }
+  constructor(private localStorageService: LocalStorageService, private stateService: StateService, private router: Router) { }
 
   ngOnInit(): void {
+    // Check token availability in local storage
+    const token = this.localStorageService.getItem("token");
+    this.isLogin = token ? true : false;
+    // Update login status
+    this.stateService.setLoginStatus(this.isLogin);
+    // Keep eye on loginStatus changes
     this.stateService.loginStatus$.subscribe((value) => {
       this.isLogin = value;
     });
   }
+
+  /**
+   * This function use to handle logout button lick event
+   */
+  logOutHandler() {
+    this.stateService.setLoginStatus(false);
+    // localStorage.clear();
+  }
+
 }

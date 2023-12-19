@@ -1,6 +1,9 @@
-<app-header></app-header>
+<!-- Header -->
+<app-header [isLogin]="isLogin" [activePathName]="activePathName"></app-header>
+<!-- Main content -->
 <div class="main-container">
   <router-outlet></router-outlet>
   <ng-toast></ng-toast>
 </div>
+<!-- Footer -->
 <app-footer></app-footer>
