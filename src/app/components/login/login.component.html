@@ -18,7 +18,7 @@
                     loginForm.controls['username'].dirty &&
                     loginForm.hasError('required', 'username')
                   ">
-                  <input formControlName="username" type="text" id="username" class="rounded-3 px-2" />
+                  <input formControlName="username" type="text" id="username" class="rounded-3 px-2 py-1 mt-1" />
                 </div>
                 <small *ngIf="
                     loginForm.controls['username'].dirty &&
@@ -32,7 +32,7 @@
                     loginForm.controls['password'].dirty &&
                     loginForm.hasError('required', 'password')
                   ">
-                  <input formControlName="password" type="password" id="password" class="rounded-3 px-2" />
+                  <input formControlName="password" type="password" id="password" class="rounded-3 px-2 py-1 mt-1" />
                 </div>
                 <small *ngIf="
                     loginForm.controls['password'].dirty &&
@@ -40,7 +40,7 @@
                   " class="text-danger">*Password is required</small>
               </div>
               <!-- Login Button -->
-              <button (click)="onLogin()" type="submit" class="btn btn-dark w-100 rounded-3 mt-4" id="login-btn">
+              <button (click)="onLogin()" type="submit" class="btn btn-dark w-100 rounded-3 mt-5 py-3" id="login-btn">
                 Login
               </button>
             </form>
